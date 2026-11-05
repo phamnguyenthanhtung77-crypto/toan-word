@@ -1,0 +1,43 @@
+:root {
+  --bg: #ffffff; --fg: #1f2328; --muted: #656d76; --line: #d8dee4;
+  --accent: #1a5fb4; --accent-fg: #ffffff; --key: #f6f8fa; --key-hover: #eaeef2;
+  --ok: #1a7f37; --err: #cf222e;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #1f1f1f; --fg: #e6e6e6; --muted: #a0a0a0; --line: #3a3a3a;
+    --accent: #4c8ee8; --key: #2a2a2a; --key-hover: #353535; --ok: #3fb950; --err: #f85149; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: 12px; background: var(--bg); color: var(--fg);
+  font: 13px/1.45 "Segoe UI", system-ui, sans-serif; }
+header { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+h1 { font-size: 16px; margin: 0 0 8px; }
+h2 { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase;
+  letter-spacing: .03em; margin: 14px 0 6px; }
+.status { font-size: 12px; }
+.status.ok { color: var(--ok); } .status.err { color: var(--err); }
+math-field { display: block; width: 100%; min-height: 56px; font-size: 22px; padding: 6px 8px;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); }
+math-field:focus-within { outline: 2px solid var(--accent); outline-offset: 1px; }
+textarea { width: 100%; font: 12px/1.4 Consolas, monospace; padding: 6px; border-radius: 6px;
+  border: 1px solid var(--line); background: var(--bg); color: var(--fg); resize: vertical; }
+details { margin: 6px 0; } summary { cursor: pointer; color: var(--muted); font-size: 12px; }
+.row { display: flex; align-items: center; gap: 6px; margin: 6px 0; flex-wrap: wrap; }
+.chk { margin-left: auto; display: flex; align-items: center; gap: 4px; color: var(--muted); }
+button { font: inherit; cursor: pointer; border-radius: 6px; border: 1px solid var(--line);
+  background: var(--key); color: var(--fg); padding: 5px 10px; }
+button:hover { background: var(--key-hover); }
+button.primary { width: 100%; background: var(--accent); color: var(--accent-fg); border-color: var(--accent);
+  font-weight: 600; padding: 8px; }
+button.primary:hover { filter: brightness(1.08); }
+button.secondary { width: 100%; border-color: var(--accent); color: var(--accent); font-weight: 600; }
+button.ghost { background: transparent; }
+.batch button + button { margin-top: 6px; width: 100%; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(52px, 1fr)); gap: 4px; }
+.key { height: 40px; padding: 2px; display: flex; align-items: center; justify-content: center;
+  font-size: 15px; overflow: hidden; }
+.key .ML__latex { font-size: 15px; }
+.batch p { margin: 0 0 8px; color: var(--muted); }
+code { font-family: Consolas, monospace; font-size: 12px; background: var(--key); padding: 0 3px; border-radius: 3px; }
+footer { margin-top: 16px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+section.editor { position: sticky; top: 0; background: var(--bg); padding-bottom: 8px; z-index: 2; }

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Toán Word</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathlive@0.101.0/dist/mathlive.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mathlive@0.101.0/dist/mathlive-static.css">
+  <script src="latex2omml.js"></script>
+  <link rel="stylesheet" href="taskpane.css">
+</head>
+<body>
+  <header>
+    <h1>Soạn công thức</h1>
+    <span id="status" class="status"></span>
+  </header>
+
+  <section class="editor">
+    <math-field id="mf" math-virtual-keyboard-policy="manual"></math-field>
+    <div class="row small">
+      <button id="kbd" class="ghost" title="Bật/tắt bàn phím toán">⌨ Bàn phím</button>
+      <button id="clear" class="ghost">Xoá</button>
+      <label class="chk"><input type="checkbox" id="display"> Riêng một dòng</label>
+    </div>
+    <details>
+      <summary>Mã LaTeX</summary>
+      <textarea id="latex" spellcheck="false" rows="3" placeholder="Gõ LaTeX ở đây, ví dụ \sqrt{12}-\frac{1}{2}\sqrt{48}"></textarea>
+    </details>
+    <button id="insert" class="primary">Chèn vào Word</button>
+  </section>
+
+  <section id="palette"></section>
+
+  <section class="batch">
+    <h2>Chuyển hàng loạt</h2>
+    <p>Đổi mọi đoạn <code>$…$</code> (và <code>$$…$$</code>) trong tài liệu thành công thức Word.</p>
+    <button id="convertAll" class="secondary">Chuyển toàn bộ tài liệu</button>
+    <button id="convertSel" class="ghost">Chỉ trong vùng đang chọn</button>
+  </section>
+
+  <footer>Mẹo: trong ô soạn, gõ <code>/</code> để tạo phân số, gõ <code>sqrt</code> để tạo căn, <code>^</code> để lên mũ, phím → để thoát ra ngoài.</footer>
+
+  <script src="taskpane.js"></script>
+</body>
+</html>

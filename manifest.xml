@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+           xsi:type="TaskPaneApp">
+  <Id>6f2b8c41-3d7a-4e59-9b1c-7a1e5d0c9a42</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Pham Nguyen Thanh Tung</ProviderName>
+  <DefaultLocale>vi-VN</DefaultLocale>
+  <DisplayName DefaultValue="Toán Word"/>
+  <Description DefaultValue="Soạn và chèn công thức toán (công thức gốc của Word), chuyển hàng loạt $…$ thành công thức."/>
+  <IconUrl DefaultValue="https://phamnguyenthanhtung77-crypto.github.io/toan-word/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://phamnguyenthanhtung77-crypto.github.io/toan-word/assets/icon-64.png"/>
+  <SupportUrl DefaultValue="https://phamnguyenthanhtung77-crypto.github.io/toan-word/taskpane.html"/>
+  <AppDomains>
+    <AppDomain>https://cdn.jsdelivr.net</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Document"/>
+  </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="WordApi" MinVersion="1.1"/>
+    </Sets>
+  </Requirements>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://phamnguyenthanhtung77-crypto.github.io/toan-word/taskpane.html"/>
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Document">
+        <DesktopFormFactor>
+          <FunctionFile resid="Commands.Url"/>
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <CustomTab id="ToanWord.Tab">
+              <Group id="ToanWord.Group">
+                <Label resid="Group.Label"/>
+                <Icon>
+                  <bt:Image size="16" resid="Icon.16"/>
+                  <bt:Image size="32" resid="Icon.32"/>
+                  <bt:Image size="80" resid="Icon.80"/>
+                </Icon>
+                <Control xsi:type="Button" id="ToanWord.Open">
+                  <Label resid="Button.Label"/>
+                  <Supertip>
+                    <Title resid="Button.Label"/>
+                    <Description resid="Button.Tip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16"/>
+                    <bt:Image size="32" resid="Icon.32"/>
+                    <bt:Image size="80" resid="Icon.80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>ToanWordPane</TaskpaneId>
+                    <SourceLocation resid="Taskpane.Url"/>
+                  </Action>
+                </Control>
+              </Group>
+              <Label resid="Tab.Label"/>
+            </CustomTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon.16" DefaultValue="https://phamnguyenthanhtung77-crypto.github.io/toan-word/assets/icon-16.png"/>
+        <bt:Image id="Icon.32" DefaultValue="https://phamnguyenthanhtung77-crypto.github.io/toan-word/assets/icon-32.png"/>
+        <bt:Image id="Icon.80" DefaultValue="https://phamnguyenthanhtung77-crypto.github.io/toan-word/assets/icon-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://phamnguyenthanhtung77-crypto.github.io/toan-word/taskpane.html"/>
+        <bt:Url id="Commands.Url" DefaultValue="https://phamnguyenthanhtung77-crypto.github.io/toan-word/commands.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="Tab.Label" DefaultValue="TOÁN"/>
+        <bt:String id="Group.Label" DefaultValue="Công thức"/>
+        <bt:String id="Button.Label" DefaultValue="Soạn công thức"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="Button.Tip" DefaultValue="Mở khung soạn công thức toán và chèn vào Word."/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
